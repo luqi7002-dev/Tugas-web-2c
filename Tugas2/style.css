@@ -1,0 +1,408 @@
+/* =========================================================
+   TOKENS
+   ========================================================= */
+:root {
+    --paper: #F6F7F5;
+    --ink: #1D2321;
+    --ink-soft: #4B5450;
+    --accent: #2F6F62;
+    --accent-soft: #E4EFEC;
+    --gold: #C99A2E;
+    --line: #D8DDD9;
+    --white: #FFFFFF;
+
+    --font-display: 'Space Mono', monospace;
+    --font-body: 'Work Sans', sans-serif;
+
+    --radius: 6px;
+    --max-width: 1080px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    font-family: var(--font-display);
+    margin: 0;
+    color: var(--ink);
+}
+
+p {
+    margin: 0 0 0.75em 0;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem 1.5rem 3rem;
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.header-index {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.04em;
+}
+
+.header-name {
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    line-height: 1.05;
+}
+
+.header-role {
+    font-family: var(--font-display);
+    color: var(--accent-soft);
+    margin: 0.8rem 0 1rem 0;
+    font-size: 1rem;
+}
+
+.header-desc {
+    max-width: 520px;
+    color: #C9D2CE;
+    margin: 0;
+}
+
+/* =========================================================
+   NAV — flexbox
+   ========================================================= */
+.site-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-list {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.nav-list li a {
+    display: inline-block;
+    padding: 1rem 0;
+    color: var(--ink-soft);
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-list li a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.nav-highlight {
+    margin-left: auto;
+}
+
+.nav-highlight a {
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+}
+
+/* =========================================================
+   MAIN — flexbox layout: content + aside
+   ========================================================= */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+}
+
+.content {
+    flex: 2 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    min-width: 0;
+}
+
+article h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+}
+
+article p {
+    color: var(--ink-soft);
+    max-width: 65ch;
+}
+
+/* Pendidikan timeline — flexbox */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+}
+
+.timeline-stage {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--accent);
+    min-width: 70px;
+}
+
+.timeline-school {
+    color: var(--ink);
+    font-weight: 500;
+}
+
+/* Keahlian cards — flexbox */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+.skill-card {
+    flex: 1 1 140px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    font-weight: 500;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(29, 35, 33, 0.08);
+}
+
+/* Hobi chips — flexbox */
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.chip {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Pengalaman list */
+.experience-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.experience-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+}
+
+.experience-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+/* =========================================================
+   ASIDE — flexbox
+   ========================================================= */
+aside {
+    flex: 1 1 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 5rem;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 3px solid var(--accent-soft);
+}
+
+aside h2 {
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.4rem;
+}
+
+.bio-list {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.bio-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 0.4rem;
+}
+
+.bio-row dt {
+    color: var(--ink-soft);
+}
+
+.bio-row dd {
+    margin: 0;
+    font-weight: 500;
+    text-align: right;
+}
+
+.aside-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+/* =========================================================
+   FOOTER — flexbox
+   ========================================================= */
+.site-footer {
+    background: var(--ink);
+    color: #C9D2CE;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.footer-note {
+    font-size: 0.85rem;
+    color: #8FA39B;
+}
+
+/* =========================================================
+   RESPONSIVE — Tablet
+   ========================================================= */
+@media screen and (max-width: 900px) {
+    main {
+        gap: 1.75rem;
+    }
+
+    .skill-card {
+        flex: 1 1 45%;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — Smartphone
+   ========================================================= */
+@media screen and (max-width: 768px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        position: static;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.25rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-list li a {
+        padding: 0.5rem 0;
+    }
+
+    .nav-highlight {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .skill-card {
+        flex: 1 1 100%;
+    }
+}
