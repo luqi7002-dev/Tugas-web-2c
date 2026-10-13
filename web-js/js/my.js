@@ -1,0 +1,1 @@
+alert('Halo nama saya luqi ihsanul a yan');
